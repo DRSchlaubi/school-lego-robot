@@ -12,5 +12,9 @@ public class EV3Brick {
 	
 	public Port getPort(String portName) {
 		return brick.getPort(portName);
-	}	
+	}
+	
+	public Brick getBrick() {
+		return brick;
+	}
 }

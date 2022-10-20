@@ -1,3 +1,5 @@
+import java.io.File;
+
 import lejos.hardware.port.Port;
 
 @SuppressWarnings("FieldCanBeLocal")
@@ -16,5 +18,24 @@ public class TwoWheelRobot {
 
 	void drive() {
 		motA.start(speed);
+		motB.start(speed);
 	}
+
+	void turn() {
+		motA.start(speed);
+	}
+	
+	void shitCode() {
+		drive();
+		brick.getBrick().getLED().setPattern(1);
+		brick.getBrick().getAudio().setVolume(100);
+		brick.getBrick().getAudio().systemSound(2);
+		Helfer.delayProgramm(3);
+		brick.getBrick().getLED().setPattern(3);
+		brick.getBrick().getAudio().systemSound(3);
+		Helfer.delayProgramm(3);
+		brick.getBrick().getLED().setPattern(5);
+		brick.getBrick().getAudio().systemSound(4);
+	}
+	
 }
