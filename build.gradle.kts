@@ -20,6 +20,10 @@ dependencies {
     implementation(files(lejosHome("lib", "ev3", "ev3classes.jar")))
 }
 
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_7
+}
+
 tasks {
     task<LejosRunTask>("runTest1") {
         mainClass("Test")
