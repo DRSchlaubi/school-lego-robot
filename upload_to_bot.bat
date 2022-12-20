@@ -23,7 +23,6 @@ del /s /f /q META-INF
 "%lejosJava%\bin\jar" cfm ..\bin\program.jar ..\META-INF\MANIFEST.TXT *
 popd
 del /s /f /q META-INF
-stop
 echo Uploading program to %ip%
 "%lejos%\bin\ev3scpupload.bat" -n %ip% -r bin\program.jar /home/lejos/programs/program.jar
 GOTO End
