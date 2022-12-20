@@ -9,6 +9,7 @@ import dev.schlaubi.lejos.gradle.LejosRunTask
 
 plugins {
     java
+    `lejos-project`
 }
 
 repositories {
@@ -23,4 +24,11 @@ tasks {
     task<LejosRunTask>("runTest1") {
         mainClass("Test")
     }
+    task<LejosRunTask>("runTest2") {
+        mainClass("Test2")
+    }
+}
+
+lejos {
+    botIp.set(localProperties.getString("bot-ip") ?: error("""Please define "bot-ip" in local.properties"""))
 }
