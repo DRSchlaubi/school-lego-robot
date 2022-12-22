@@ -1,4 +1,6 @@
 import lejos.hardware.port.Port;
+import lejos.hardware.sensor.EV3IRSensor;
+import lejos.hardware.sensor.EV3UltrasonicSensor;
 import lejos.utility.Delay;
 
 import java.util.concurrent.TimeUnit;
@@ -11,10 +13,16 @@ public class TwoWheelRobot {
 	private final Motor motB = new Motor();
 	private final Port portA = brick.getPort("A");
 	private final Port portB = brick.getPort("B");
+	private final Port port1 = brick.getPort("S1");
+	private final EV3IRSensor irSensor = new EV3IRSensor(port1);
 
 	public TwoWheelRobot() {
 		motA.connect(portA);
 		motB.connect(portB);
+	}
+
+	public EV3IRSensor getIrSensor() {
+		return irSensor;
 	}
 
 	public void setSpeed(double speed) {

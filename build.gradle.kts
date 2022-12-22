@@ -31,6 +31,9 @@ tasks {
     task<LejosRunTask>("runTest2") {
         mainClass("Test2")
     }
+    task<LejosRunTask>("runTableWalker") {
+        mainClass("TableWalker")
+    }
 }
 
 lejos {
