@@ -13,8 +13,6 @@ public class TwoWheelRobot {
 	private final Port portA = brick.getPort("A");
 	private final Port portB = brick.getPort("B");
 	private final Port port1 = brick.getPort("S1");
-	private final EV3IRSensor irSensor = new EV3IRSensor(port1);
-
 	public TwoWheelRobot() {
 		this(5);
 	}
@@ -23,10 +21,6 @@ public class TwoWheelRobot {
 		this.speed = speed;
 		motA.connect(portA);
 		motB.connect(portB);
-	}
-
-	public EV3IRSensor getIrSensor() {
-		return irSensor;
 	}
 
 	public void setSpeed(double speed) {
@@ -69,5 +63,14 @@ public class TwoWheelRobot {
 		brick.getBrick().getLED().setPattern(5);
 		brick.getBrick().getAudio().systemSound(4);
 	}
-	
+
+	public void turn(Direction direction, double degrees) {
+		Motor motor;
+		if (direction == Direction.LEFT) {
+			motor = motB;
+		} else {
+			motor = motA;
+		}
+		Helfer.runMotorForDegrees(motor, degrees);
+	}
 }

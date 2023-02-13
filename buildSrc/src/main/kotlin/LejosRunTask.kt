@@ -15,6 +15,7 @@ abstract class LejosRunTask : Jar() {
         from({ project.configurations.getByName("runtimeClasspath").map { if (it.isDirectory()) it else project.zipTree(it) } })
 
         doLast { startBotTask() }
+        outputs.upToDateWhen { false }
     }
 
     fun mainClass(name: String) = manifest.attributes(mapOf("Main-Class" to name))
