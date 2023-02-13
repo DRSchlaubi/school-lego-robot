@@ -23,10 +23,11 @@ public class Helfer {
     public static void runMotorForDegrees(Motor motor, double degrees) {
         runMotorForDegrees(motor, 0.5, degrees);
     }
+
     public static void runMotorForDegrees(Motor motor, double speed, double degrees) {
         double distance = circleSegmentDistance(degrees);
         double rotations = getUmdrehungen(distance);
-        double seconds = rotations/speed;
+        double seconds = rotations / speed;
 
         motor.start(speed);
         delayProgramm(seconds);
