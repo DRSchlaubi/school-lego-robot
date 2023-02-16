@@ -8,3 +8,5 @@
  */
 
 rootProject.name = "twowheelrobot"
+
+include(":java")

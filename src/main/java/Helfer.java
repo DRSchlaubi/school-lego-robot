@@ -30,7 +30,7 @@ public class Helfer {
         double seconds = rotations / speed;
 
         motor.start(speed);
-        delayProgramm(seconds);
+        Delay.msDelay((long) (seconds * 1000.0));
         motor.stop();
     }
 }
